@@ -1,0 +1,148 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  text-align: center;
+  width: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #0e0e0e;
+  color: #f1f1f1;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-align: center;
+}
+
+footer{
+  display: flex;
+  justify-content: flex-start;
+}
+
+.container {
+  padding: 40px 20px;
+  width: 100%;
+}
+
+.carousel-inner{
+  width: 100%;
+}
+
+input[type="text"] {
+  padding: 12px 16px;
+  width: 70%;
+  max-width: 400px;
+  font-size: 18px;
+  background-color: #1a1a1a;
+  color: #fff;
+  border: 1px solid #444;
+  border-radius: 8px;
+  margin-top: 20px;
+}
+
+.arrange {
+  display: flex;
+  flex-direction: column;
+  gap:"5px";
+  align-items: center;
+}
+
+.custom-carousel{
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  justify-content: center;
+  overflow: hidden;
+  width: 90%;
+  height: fit-content;
+  margin: 0 auto;
+}
+
+.carousel-btn{
+  width: fit-content;
+  height: 150px;
+}
+
+button {
+  padding: 10px 20px;
+  width: 70%;
+  margin-top: 20px;
+  font-size: 16px;
+  background-color: #ff2c91;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.btn {
+  width: 30%;
+  height: fit-content;
+  padding: 0.8rem 1rem; /* Tweak if needed */
+  line-height: 1;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem; /* Adds spacing between text and icon */
+}
+
+.search{
+  width: fit-content;
+}
+
+
+button:hover {
+  background-color: #e0217e;
+}
+
+img {
+  margin-top: 30px;
+  max-width: 80%;
+  border-radius: 12px;
+  border: 1px solid #333;
+}
+
+.carousel-image {
+ flex: 0 0 100%;
+ max-width: 100%;
+ height: auto;
+ transition: transform 0.6s ease-in-out;
+ border-radius: 12px;
+ object-fit: cover;
+
+}
+
+.carousel-slider {
+  display: flex;
+  transition: transform 0.6s ease-in-out;
+  width: 100%;
+}
+
+.carousel-viewport {
+  width: fit-content;
+  height: 850px;
+  max-width: 512px;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+}
+
+.heading-stuff{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+}
+
+.landing h3{
+  font-size: 3.5rem;
+  text-align: start;
+}
+
+.landing{
+  max-width: 400px;
+  padding-left: 30px;
+}
