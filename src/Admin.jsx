@@ -6,7 +6,7 @@ export default function AdminPasswordModal({ onClose, onFailure , onSuccess }) {
   const [password, setPassword] = useState("");
 
   const handleSubmit = async () => {
-    const res = await fetch("/api/admin/verify-admin-password", {
+    const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/admin/verify-admin-password`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ password }),

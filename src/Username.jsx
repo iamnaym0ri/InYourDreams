@@ -15,7 +15,7 @@ export default function UsernameModal({ onSetUsername, onSuccess }) {
 
   const UserExists = async (username) => {
     try {
-      const res = await fetch(`/api/username/${encodeURIComponent(username)}`);
+      const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/username/${encodeURIComponent(username)}`);
       if (res.ok) return true;
       return false;
     } catch (err) {
@@ -37,7 +37,7 @@ export default function UsernameModal({ onSetUsername, onSuccess }) {
       toast.success(`Welcome Back ${trimmed}!`);
     } else {
       try {
-        const res = await axios.post("/api/username", { username: trimmed });
+        const res = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/username`, { username: trimmed });
         if (res.data.success) {
           sessionStorage.setItem("username", trimmed);
           onSetUsername(trimmed);
@@ -55,7 +55,7 @@ export default function UsernameModal({ onSetUsername, onSuccess }) {
 
   const evaluate = async (prompt) => {
     console.log("Evaluation Triggered for username!");
-    const res = await fetch("/api/admin/evaluate", {
+    const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/admin/evaluate`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ prompt }),

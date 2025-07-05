@@ -16,7 +16,7 @@ export default function UsageTracker({
 
     const fetchUsage = async () => {
       try {
-        const res = await fetch("/api/usage", {
+        const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/usage`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ username }),
@@ -40,7 +40,7 @@ export default function UsageTracker({
 
     const fetchPlan = async () => {
       try {
-        const res = await fetch(`/api/username/${username}`);
+        const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/username/${username}`);
         const data = await res.json();
         if (res.ok && data.user?.plan) {
           setPlan(data.user.plan);

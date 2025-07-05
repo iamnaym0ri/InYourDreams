@@ -11,7 +11,7 @@ export default function FeedbackModal({ username, onClose }) {
 
     setSubmitting(true);
     try {
-      const res = await fetch("/api/feedback", {
+      const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/feedback`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ username, feedback }),

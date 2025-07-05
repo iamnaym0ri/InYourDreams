@@ -15,7 +15,7 @@ const PlansModal = forwardRef(
 
       const fetchUserData = async () => {
         try {
-          const res = await fetch(`/api/username/${username}`);
+          const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/username/${username}`);
           const data = await res.json();
           if (res.ok && data.user) {
             setSubscriptionId(data.user.subscription_id || null);
@@ -30,7 +30,7 @@ const PlansModal = forwardRef(
     }, []);
 
     const startCheckout = async (plan) => {
-      const res = await fetch(`/api/stripe/subscription-status`, {
+      const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/stripe/subscription-status`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ subscriptionId }),
@@ -39,7 +39,7 @@ const PlansModal = forwardRef(
 
       if (subscriptionId && plan !== "free" && data.status === "active") {
         try {
-          const res = await fetch("/api/stripe/manage-subscription", {
+          const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/stripe/manage-subscription`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ username, newPlan: plan }),
@@ -57,7 +57,7 @@ const PlansModal = forwardRef(
         }
       } else {
         try {
-          const res = await fetch("/api/stripe/create-checkout-session", {
+          const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/stripe/create-checkout-session`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ username, plan }),
@@ -84,7 +84,7 @@ const PlansModal = forwardRef(
 
       setLoading(true);
       try {
-        const res = await fetch("/api/stripe/cancel-subscription", {
+        const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/stripe/cancel-subscription`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ subscriptionId, username }),

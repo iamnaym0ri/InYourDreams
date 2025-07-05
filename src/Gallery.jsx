@@ -26,7 +26,7 @@ export default function Gallery() {
     }
 
     axios
-      .get("/api/gallery", { params: { query } })
+      .get(`${import.meta.env.VITE_BACKEND_URL}/api/gallery`, { params: { query } })
       .then((res) => {
         setImages(res.data || []);
         if ((res.data || []).length === 0) setErrorMsg("No results found.");
@@ -45,7 +45,7 @@ export default function Gallery() {
 
   const fetchTagSuggestions = async (text) => {
     if (!text) return setSuggestions([]);
-    const res = await axios.get("/api/tags", { params: { term: text } });
+    const res = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/tags`, { params: { term: text } });
     setSuggestions(res.data || []);
   };
 

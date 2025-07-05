@@ -1,7 +1,7 @@
 const GalleryDown = ({ imageUrl }) => {
   const handleDownload = () => {
     const link = document.createElement("a");
-    link.href = `/api/download?url=${encodeURIComponent(imageUrl)}`;
+    link.href = `${import.meta.env.VITE_BACKEND_URL}/api/download?url=${encodeURIComponent(imageUrl)}`;
     link.download = "image.jpg";
     document.body.appendChild(link);
     link.click();

@@ -18,7 +18,7 @@ export default function GalleryPage() {
   useEffect(() => {
     if (!query) return;
     if (images.length === 0) {
-      axios.get("/api/gallery", { params: { query } }).then((res) => {
+      axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/gallery`, { params: { query } }).then((res) => {
         setImages(res.data || []);
       });
     }

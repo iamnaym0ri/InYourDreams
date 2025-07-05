@@ -77,7 +77,7 @@ function App() {
 
     const fetchPlan = async () => {
       try {
-        const res = await fetch(`/api/username/${username}`);
+        const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/username/${username}`);
         const data = await res.json();
         if (res.ok && data.user?.plan) {
           setPlan(data.user.plan);
@@ -128,7 +128,7 @@ function App() {
 
   const evaluate = async (prompt) => {
     console.log("Evaluation Triggered");
-    const res = await fetch("/api/admin/evaluate", {
+    const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/admin/evaluate`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ prompt }),
@@ -189,7 +189,7 @@ function App() {
     }
 
     try {
-      const usageRes = await fetch("/api/usage", {
+      const usageRes = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/usage`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ username, admin }),
@@ -230,7 +230,7 @@ function App() {
       setImageUrl(url);
       setUserGeneratedImages((prev) => [...prev, url]);
 
-      await fetch("/api/usage/increment", {
+      await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/usage/increment`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ username }),
@@ -264,7 +264,7 @@ function App() {
     }
 
     try {
-      const usageRes = await fetch("/api/usage", {
+      const usageRes = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/usage`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ username, admin }),
@@ -352,7 +352,7 @@ function App() {
       if (image) {
         setImageUrl(image);
 
-        await fetch("/api/usage/increment", {
+        await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/usage/increment`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ username }),
