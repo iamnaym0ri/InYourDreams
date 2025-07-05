@@ -1,6 +1,6 @@
 export async function generateImage({ prompt, model }) {
   console.log("⚙️ Starting generateImage with model:", model);
-  const response = await fetch("http://localhost:5000/api/generate", {
+  const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/generate`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
