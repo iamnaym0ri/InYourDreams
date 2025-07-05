@@ -9,7 +9,7 @@ export default function UsernameModal({ onSetUsername, onSuccess }) {
   const [error, setError] = useState("");
 
   useEffect(() => {
-    const existing = sessionStorage.getItem("username");
+    const existing = localStorage.getItem("username");
     if (!existing) setShow(true);
   }, []);
 
@@ -31,7 +31,7 @@ export default function UsernameModal({ onSetUsername, onSuccess }) {
     const exists = await UserExists(trimmed);
 
     if (exists) {
-      sessionStorage.setItem("username", trimmed);
+      localStorage.setItem("username", trimmed);
       onSetUsername(trimmed);
       setShow(false);
       toast.success(`Welcome Back ${trimmed}!`);
@@ -39,7 +39,7 @@ export default function UsernameModal({ onSetUsername, onSuccess }) {
       try {
         const res = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/username`, { username: trimmed });
         if (res.data.success) {
-          sessionStorage.setItem("username", trimmed);
+          localStorage.setItem("username", trimmed);
           onSetUsername(trimmed);
           setShow(false);
           toast.success(`welcome ${username}!`);
