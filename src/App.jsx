@@ -53,7 +53,7 @@ function App() {
 
   const activeImages = adminMode ? replaceImages : images;
 
-  const username = sessionStorage.getItem("username");
+  const username = localStorage.getItem("username");
 
   useEffect(() => {
     if (isManual) return;
@@ -67,12 +67,12 @@ function App() {
   }, [activeImages.length, isManual]);
 
   useEffect(() => {
-    const current = sessionStorage.getItem("plan") || "free";
+    const current = localStorage.getItem("plan") || "free";
     setPlan(current);
   }, []);
 
   useEffect(() => {
-    const username = sessionStorage.getItem("username");
+    const username = localStorage.getItem("username");
     if (!username) return;
 
     const fetchPlan = async () => {
@@ -178,7 +178,7 @@ function App() {
 
     console.log("Premium Generation Triggered!");
 
-    const username = sessionStorage.getItem("username");
+    const username = localStorage.getItem("username");
     const admin = adminMode;
 
     if (!username) {
@@ -255,7 +255,7 @@ function App() {
 
     const admin = adminMode;
 
-    const username = sessionStorage.getItem("username");
+    const username = localStorage.getItem("username");
     if (!username) {
       alert("Username not found.");
       setLoading(false);

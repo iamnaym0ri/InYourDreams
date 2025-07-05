@@ -8,7 +8,7 @@ const PlansModal = forwardRef(
     const [subscriptionId, setSubscriptionId] = useState(null);
     const [plan, setPlan] = useState("free");
     const [loading, setLoading] = useState(false);
-    const username = sessionStorage.getItem("username");
+    const username = localStorage.getItem("username");
 
     useEffect(() => {
       if (!username) return;

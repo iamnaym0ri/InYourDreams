@@ -35,7 +35,7 @@ export default function UsageTracker({
   }, [username, triggerRefresh]);
 
   useEffect(() => {
-    const username = sessionStorage.getItem("username");
+    const username = localStorage.getItem("username");
     if (!username) return;
 
     const fetchPlan = async () => {
