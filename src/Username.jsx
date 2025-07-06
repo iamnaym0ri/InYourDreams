@@ -9,13 +9,21 @@ export default function UsernameModal({ onSetUsername, onSuccess }) {
   const [error, setError] = useState("");
 
   useEffect(() => {
-    const existing = localStorage.getItem("username");
-    if (existing) {
-      onSetUsername(existing);
-    } else {
-      setShow(true);
-    }
-  }, []);
+  const existing = localStorage.getItem("username");
+  if (existing) {
+    UserExists(existing).then((exists) => {
+      if (exists) {
+        onSetUsername(existing);
+      } else {
+        localStorage.removeItem("username");
+        setShow(true);
+      }
+    });
+  } else {
+    setShow(true);
+  }
+}, []);
+
 
   const UserExists = async (username) => {
     try {
