@@ -10,11 +10,11 @@ body {
   padding: 0;
   background-color: #0e0e0e;
   color: #f1f1f1;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   text-align: center;
 }
 
-footer{
+footer {
   display: flex;
   justify-content: flex-start;
 }
@@ -24,7 +24,7 @@ footer{
   width: 100%;
 }
 
-.carousel-inner{
+.carousel-inner {
   width: 100%;
 }
 
@@ -43,11 +43,11 @@ input[type="text"] {
 .arrange {
   display: flex;
   flex-direction: column;
-  gap:"5px";
+  gap: "5px";
   align-items: center;
 }
 
-.custom-carousel{
+.custom-carousel {
   display: flex;
   align-items: center;
   gap: 20px;
@@ -58,8 +58,8 @@ input[type="text"] {
   margin: 0 auto;
 }
 
-.carousel-btn{
-  width: fit-content;
+.carousel-btn {
+  width: fit-content !important;
   height: 150px;
 }
 
@@ -78,18 +78,22 @@ button {
 .btn {
   width: 30%;
   height: fit-content;
-  padding: 0.8rem 1rem; /* Tweak if needed */
+  padding: 0.8rem 1rem;
   line-height: 1;
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  gap: 0.5rem; /* Adds spacing between text and icon */
+  gap: 0.5rem;
 }
 
-.search{
+.search {
   width: fit-content;
 }
 
+.foot {
+  display: flex;
+  flex-direction: column;
+}
 
 button:hover {
   background-color: #e0217e;
@@ -103,13 +107,12 @@ img {
 }
 
 .carousel-image {
- flex: 0 0 100%;
- max-width: 100%;
- height: auto;
- transition: transform 0.6s ease-in-out;
- border-radius: 12px;
- object-fit: cover;
-
+  flex: 0 0 100%;
+  max-width: 100%;
+  height: auto;
+  transition: transform 0.6s ease-in-out;
+  border-radius: 12px;
+  object-fit: cover;
 }
 
 .carousel-slider {
@@ -130,19 +133,369 @@ img {
   border-radius: 12px;
 }
 
-.heading-stuff{
+.heading-stuff-1 {
   display: flex;
   justify-content: flex-start;
   align-items: center;
   gap: 10px;
 }
 
-.landing h3{
+.heading-stuff {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+}
+
+.landing h3 {
   font-size: 3.5rem;
   text-align: start;
 }
 
-.landing{
+.landing {
   max-width: 400px;
   padding-left: 30px;
+}
+
+@media (max-width: 375px) {
+  .container {
+    width: 100%;
+  }
+
+  .heading-stuff-1 {
+    display: flex;
+    width: 100%;
+    gap: 0px;
+    flex-direction: column;
+  }
+
+  .heading-h1 {
+    display: flex;
+    font-size: 35px;
+    gap: 30px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .heading-stuff {
+    margin-top: 15px;
+    justify-content: center;
+  }
+
+  .button-container {
+    flex-wrap: wrap;
+  }
+
+  .btn-w {
+    width: 70%;
+    height: 40px;
+    max-width: 150px;
+  }
+
+  .sec-head {
+    font-size: 50px;
+  }
+
+  .search-gal {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 8px;
+  }
+
+  .custom-carousel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    justify-content: center;
+    overflow: hidden;
+    width: 90%;
+    height: fit-content;
+    margin: 0 auto;
+  }
+
+  .carousel-viewport {
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+  }
+
+  .carousel-btn {
+    width: fit-content;
+    height: 100px;
+    margin: 0;
+    padding: 0;
+  }
+
+  .landing h3 {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  .landing {
+    margin: 0px;
+    padding: 5px;
+  }
+
+  .foot {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .foot-btn {
+    width: 100%;
+  }
+}
+
+@media (min-width: 376px) and (max-width: 428px) {
+  .container {
+    width: 100%;
+  }
+
+  .heading-stuff-1 {
+    display: flex;
+    width: 100%;
+    gap: 0px;
+    flex-direction: column;
+  }
+
+  .heading-h1 {
+    display: flex;
+    font-size: 2.4rem;
+    gap: 30px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .heading-stuff {
+    margin-top: 15px;
+    justify-content: center;
+  }
+
+  .button-container {
+    flex-wrap: wrap;
+  }
+
+  .btn-w {
+    width: 70%;
+    height: 40px;
+    max-width: 150px;
+  }
+
+  .sec-head {
+    font-size: 65px;
+  }
+
+  .search-gal {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 8px;
+  }
+
+  .custom-carousel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    justify-content: center;
+    overflow: hidden;
+    width: 100%;
+    height: fit-content;
+    margin: 0 auto;
+  }
+
+  .carousel-viewport {
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+  }
+
+  .carousel-btn {
+    width: fit-content;
+    height: 100px;
+    margin: 0;
+    padding: 0;
+  }
+
+  .landing h3 {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  .landing {
+    margin: 0px;
+    padding: 5px;
+  }
+
+  .foot {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .foot-btn {
+    width: 100%;
+  }
+}
+
+@media (min-width: 429px) and (max-width: 768px) {
+  .container {
+    width: 100%;
+  }
+  .heading-stuff-1 {
+    display: flex;
+    width: 100%;
+    gap: 50px;
+    align-items: center;
+    margin-bottom: 30px;
+  }
+
+  .heading-h1 {
+    display: flex;
+    font-size: 3rem;
+    gap: 15px;
+    align-items: center;
+    flex-direction: column;
+    margin: 0px !important;
+  }
+
+  .custom-carousel {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    justify-content: center;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .carousel-viewport {
+    width: 85%;
+    height: 100%;
+    max-width: 100%;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+  }
+
+  .carousel-btn {
+    width: fit-content;
+    height: 100px;
+    margin: 0;
+    padding: 0;
+  }
+
+  .landing h3 {
+    font-size: 2.2rem;
+    text-align: start;
+  }
+
+  .foot {
+    display: flex;
+    flex-direction: row;
+  }
+  .foot-btn {
+    width: 50%;
+  }
+
+  .search-gal1 {
+    display: flex;
+    gap: 10px;
+  }
+
+  .two {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .search-gal2 {
+    width: fit-content;
+    justify-content: start;
+  }
+
+  .sec-head {
+    font-size: 2.2rem;
+    justify-content: center;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .landing h3 {
+    font-size: 2rem;
+    text-align: start;
+  }
+
+  .carousel-viewport {
+    width: 90%;
+    height: 100%;
+    max-width: 100%;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+  }
+
+  .foot {
+    display: flex;
+    flex-direction: row;
+  }
+  .foot-btn {
+    width: 50%;
+  }
+
+  .search-gal1 {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+  }
+}
+
+@media (min-width: 1024px) {
+  .carousel-viewport {
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+  }
+
+  .landing h3 {
+    font-size: 3rem;
+    text-align: start;
+  }
+
+  .foot {
+    display: flex;
+    flex-direction: row;
+  }
+  .foot-btn {
+    width: 40%;
+  }
+
+  .search-gal1 {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+  }
 }

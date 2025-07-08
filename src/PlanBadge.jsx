@@ -1,3 +1,5 @@
+import "./styles.css"
+
 const planStyles = {
   free: {
     background: "#888",
@@ -44,7 +46,7 @@ const planStyles = {
 export default function PlanBadge({ plan, admin }) {
   const style = planStyles[plan?.toLowerCase()] || planStyles["free"];
   if(admin) return;
-  
+
   return (
     <span
       style={{
@@ -59,6 +61,7 @@ export default function PlanBadge({ plan, admin }) {
         letterSpacing: style.letterSpacing,
         textTransform: "uppercase",
       }}
+      className="badges"
     >
       {style.label}
     </span>

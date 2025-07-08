@@ -77,7 +77,9 @@ function App() {
 
     const fetchPlan = async () => {
       try {
-        const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/username/${username}`);
+        const res = await fetch(
+          `${import.meta.env.VITE_BACKEND_URL}/api/username/${username}`
+        );
         const data = await res.json();
         if (res.ok && data.user?.plan) {
           setPlan(data.user.plan);
@@ -128,11 +130,14 @@ function App() {
 
   const evaluate = async (prompt) => {
     console.log("Evaluation Triggered");
-    const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/admin/evaluate`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ prompt }),
-    });
+    const res = await fetch(
+      `${import.meta.env.VITE_BACKEND_URL}/api/admin/evaluate`,
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ prompt }),
+      }
+    );
 
     const data = await res.json();
     if (data.adminTrigger === true) {
@@ -189,11 +194,14 @@ function App() {
     }
 
     try {
-      const usageRes = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/usage`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ username, admin }),
-      });
+      const usageRes = await fetch(
+        `${import.meta.env.VITE_BACKEND_URL}/api/usage`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ username, admin }),
+        }
+      );
 
       const usageData = await usageRes.json();
       console.log(usageData);
@@ -264,11 +272,14 @@ function App() {
     }
 
     try {
-      const usageRes = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/usage`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ username, admin }),
-      });
+      const usageRes = await fetch(
+        `${import.meta.env.VITE_BACKEND_URL}/api/usage`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ username, admin }),
+        }
+      );
 
       const usageData = await usageRes.json();
       console.log(usageData);
@@ -596,41 +607,45 @@ function App() {
           />
         )}
 
-        <div className="heading-stuff">
-          {adminMode && (
-            <h1 className="text-center mb-3">
-              ✨AI Gen✨
-              <PlanBadge plan={plan} admin={adminMode} />
-            </h1>
-          )}
-          {!adminMode && (
-            <h1 className="text-center mb-3">
-              🩷InYourDreams🩷
-              <PlanBadge plan={plan} admin={adminMode} />
-            </h1>
-          )}
-          <UsageTracker
-            username={username}
-            triggerRefresh={refreshUsage}
-            admin={adminMode}
-            model={display}
-          />
-          {((adminMode && active) || isPremium) && (
-            <Link to="/gallery" className="btn btn-outline-secondary search">
-              search gallery
-              <i className="bi bi-search-heart"></i>
-            </Link>
-          )}
-          {adminMode && (
-            <button
-              className="btn btn-outline-secondary w-auto"
-              onClick={() => setActive((prev) => !prev)}
-            >
-              {active ? "h" : "g"}
-            </button>
-          )}
+        <div className="heading-stuff-1 two">
+          <div className="search-gal1">
+            {adminMode && (
+              <h1 className="sec-head text-center mb-3 heading-h1">
+                ✨AI Gen✨
+                <PlanBadge plan={plan} admin={adminMode} />
+              </h1>
+            )}
+            {!adminMode && (
+              <h1 className="text-center mb-3 heading-h1">
+                🩷InYourDreams🩷
+                <PlanBadge plan={plan} admin={adminMode} />
+              </h1>
+            )}
+            <UsageTracker
+              username={username}
+              triggerRefresh={refreshUsage}
+              admin={adminMode}
+              model={display}
+            />
+          </div>
+          <div className="search-gal2">
+            {((adminMode && active) || isPremium) && (
+              <Link to="/gallery" className="btn btn-outline-secondary search">
+                search gallery
+                <i className="bi bi-search-heart"></i>
+              </Link>
+            )}
+            {adminMode && (
+              <button
+                className="btn btn-outline-secondary w-auto"
+                onClick={() => setActive((prev) => !prev)}
+              >
+                {active ? "h" : "g"}
+              </button>
+            )}
+          </div>
         </div>
-        <div className="heading-stuff">
+        <div className="heading-stuff ">
           {adminMode && (
             <p className="text-center mb-4">
               Welcome Joshua, Generate Anything You desire✨
@@ -662,9 +677,9 @@ function App() {
           />
         </div>
 
-        <div className="d-flex gap-3 mb-4 justify-content-center">
+        <div className="button-container d-flex gap-3 mb-4 justify-content-center">
           <button
-            className="btn"
+            className="btn btn-w"
             style={{ backgroundColor: "#ff69b4", color: "white" }}
             onClick={() => {
               if (isEditingPrompt) {
@@ -681,7 +696,7 @@ function App() {
 
           {adminMode && (
             <button
-              className="btn btn-outline-secondary"
+              className="btn btn-outline-secondary btn-w"
               onClick={() => setShowModal(true)}
             >
               Switch AI GEN Models
@@ -689,7 +704,7 @@ function App() {
           )}
 
           <button
-            className="btn btn-outline-light mb-3"
+            className="btn btn-outline-light btn-w mb-3"
             onClick={() => setShowPlans(true)}
           >
             View Plans
@@ -697,7 +712,7 @@ function App() {
 
           {adminMode && (
             <button
-              className="btn btn-outline-danger w-30"
+              className="btn btn-outline-danger btn-w w-30"
               onClick={() => {
                 setAdminMode(false);
                 localStorage.removeItem("adminMode");
@@ -711,61 +726,65 @@ function App() {
 
         {/*Courosel code, soon to be a component*/}
         <div className="custom-carousel carousel slide">
-          <button
-            className="carousel-btn left"
-            onClick={() => handleManualNavigation("left")}
-          >
-            ◀
-          </button>
-
-          {/*Viewport wrapper*/}
-          <div className="carousel-viewport">
-            <div
-              className="carousel-slider"
-              style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+          <div className="carousel-divider1">
+            <button
+              className="btn carousel-btn left"
+              onClick={() => handleManualNavigation("left")}
             >
-              {activeImages.map((img, index) => (
-                <img
-                  key={index}
-                  src={img}
-                  alt={`AI ${index + 1}`}
-                  className="carousel-image"
-                />
-              ))}
-            </div>
-          </div>
-          {/* ☝️ END viewport wrapper */}
+              ◀
+            </button>
 
-          <button
-            className="carousel-btn right"
-            onClick={() => handleManualNavigation("right")}
-          >
-            ▶
-          </button>
-          {!adminMode && (
-            <div className="landing">
-              <h3>
-                Generate AI girls or anything you desire for free or for a much
-                better experience, with a plan that fits your needs✨
-              </h3>
+            {/*Viewport wrapper*/}
+            <div className="carousel-viewport">
+              <div
+                className="carousel-slider"
+                style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+              >
+                {activeImages.map((img, index) => (
+                  <img
+                    key={index}
+                    src={img}
+                    alt={`AI ${index + 1}`}
+                    className="carousel-image"
+                  />
+                ))}
+              </div>
             </div>
-          )}
-          {adminMode && (
-            <div className="landing">
-              <h3>
-                Admin Mode On, Generate anything you desire and switch models
-                based on your prefrences!😎✨
-              </h3>
-            </div>
-          )}
+            {/* ☝️ END viewport wrapper */}
+
+            <button
+              className="btn carousel-btn right"
+              onClick={() => handleManualNavigation("right")}
+            >
+              ▶
+            </button>
+          </div>
+          <div className="carousel-divider2">
+            {!adminMode && (
+              <div className="landing">
+                <h3>
+                  Generate AI girls or anything you desire for free or for a
+                  much better experience, with a plan that fits your needs✨
+                </h3>
+              </div>
+            )}
+            {adminMode && (
+              <div className="landing">
+                <h3>
+                  Admin Mode On, Generate anything you desire and switch models
+                  based on your prefrences!😎✨
+                </h3>
+              </div>
+            )}
+          </div>
         </div>
         <div className="d-flex flex-column justify-content-start m-3">
-          <div className="d-flex gap-3 align-items-center p-3">
-            <Link to="/legal" className="btn btn-outline-secondary">
+          <div className="foot d-flex gap-3 align-items-center p-3">
+            <Link to="/legal" className="btn btn-outline-secondary foot-btn">
               Terms of Service and Privacy Policy
             </Link>
             <button
-              className="btn btn-outline-success"
+              className="btn btn-outline-success foot-btn"
               onClick={() => {
                 setShowFeedback(true);
               }}

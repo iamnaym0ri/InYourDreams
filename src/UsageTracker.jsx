@@ -58,7 +58,7 @@ export default function UsageTracker({
   if (admin === true) {
     return (
       <>
-        <div style={{ textAlign: "center", marginTop: "12px" }}>
+        <div style={{ textAlign: "center", marginTop: "12px" }} className="adminM">
           <div
             style={{
               display: "inline-block",
@@ -108,7 +108,7 @@ export default function UsageTracker({
   }
 
   return (
-    <div style={{ marginTop: "12px", textAlign: "center" }}>
+    <div style={{ marginTop: "12px", textAlign: "center" }} className="tracker">
       <div
         style={{
           backgroundColor: "#333",
