@@ -35,7 +35,7 @@ export default function FeedbackModal({ username, onClose }) {
   return (
     <div className="modal-overlay-feedback">
       <div className="modal-content-feedback">
-        <h3 className="mb-2 text-align-center mb-4">What would you like to be improved or changed?</h3>
+        <h3 className="mb-2 text-align-center mb-4">What do you like about the app? What do you hate about the app? Did you consider upgrading?</h3>
         <textarea
           value={feedback}
           onChange={(e) => setFeedback(e.target.value)}

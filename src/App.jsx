@@ -794,7 +794,7 @@ function App() {
           </div>
           <small className="d-flex justify-content-start ps-3">
             Please Provide Feedback for a permanent limit increase of 5 and it
-            will be very much appereciated as well✨
+            will be very much appereciated as well✨ I want to make the app better✨
           </small>
         </div>
       </div>
