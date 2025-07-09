@@ -103,7 +103,7 @@ export default function UsernameModal({ onSetUsername, onSuccess }) {
     <div className="disclaimer-overlay">
       <div className="disclaimer-modal">
         <h2>Create Username or Login</h2>
-        <p>This username will be used to track your plan and usage.</p>
+        <p>This username will be used to track your plan and usage.Make it Extra Unique😊</p>
         <input
           type="text"
           value={username}
