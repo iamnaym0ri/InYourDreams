@@ -20,7 +20,7 @@ export default function LegalPage() {
     <p><strong>Cookies:</strong> We may use basic cookies for session management. You may disable them in your browser if desired.</p>
     <p><strong>Security:</strong> We use standard protections but cannot guarantee absolute safety. Use at your own risk.</p>
     <p><strong>Third-Party Services:</strong> Stripe processes payments under its own policies. We are not responsible for their data handling.</p>
-    <p><strong>Contact:</strong> For any questions, reach us at: rora.socials77@gmail.com</p>
+    <p><strong>Contact:</strong> For any questions, reach us at: rora.socials77@gmail.com or a message on the contact 650-770-9054</p>
     </div>
 
     <Link to="/" className="btn btn-outline-secondary">

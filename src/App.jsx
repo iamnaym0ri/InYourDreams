@@ -630,7 +630,7 @@ function App() {
           </div>
           <div className="search-gal2">
             {((adminMode && active) || isPremium) && (
-              <Link to="/gallery" className="btn btn-outline-secondary search">
+              <Link to="/gallery" className="btn btn-outline-secondary search m-1">
                 search gallery
                 <i className="bi bi-search-heart"></i>
               </Link>
